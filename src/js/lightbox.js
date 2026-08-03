@@ -6,18 +6,24 @@ export function initLightbox(root = document) {
   const tagEl = box.querySelector('[data-lightbox-tag]');
   const video = box.querySelector('[data-lightbox-video]');
   const empty = box.querySelector('[data-lightbox-empty]');
+  let savedOverflow = '';
 
   const close = () => {
     box.hidden = true;
-    document.body.style.overflow = '';
+    document.body.style.overflow = savedOverflow;
     if (video) {
-      video.pause();
+      try {
+        if (typeof video.pause === 'function') video.pause();
+      } catch {}
       video.removeAttribute('src');
-      video.load();
+      try {
+        if (typeof video.load === 'function') video.load();
+      } catch {}
     }
   };
 
   const open = (btn) => {
+    savedOverflow = document.body.style.overflow;
     const title = btn.getAttribute('data-title') || '';
     const tag = btn.getAttribute('data-tag') || '';
     const src = btn.getAttribute('data-src') || '';
