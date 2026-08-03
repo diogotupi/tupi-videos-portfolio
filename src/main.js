@@ -1,5 +1,6 @@
 import './styles/tokens.css';
 import './styles/base.css';
 import './styles/sections.css';
+import { initHeroVideo } from './js/hero-video.js';
 
-console.log('Diogo Tupi portfolio boot');
+initHeroVideo();
