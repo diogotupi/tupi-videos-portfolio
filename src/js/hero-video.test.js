@@ -20,8 +20,16 @@ describe('initHeroVideo', () => {
     });
   });
 
+  it('adds is-fallback immediately when video has no source', () => {
+    initHeroVideo(document);
+    expect(document.querySelector('.hero').classList.contains('is-fallback')).toBe(
+      true,
+    );
+  });
+
   it('does not add is-fallback when play resolves', async () => {
     const video = document.querySelector('[data-hero-video]');
+    video.innerHTML = '<source src="blob:test" type="video/mp4">';
     video.play = vi.fn(() => Promise.resolve());
     initHeroVideo(document);
     await Promise.resolve();

@@ -8,7 +8,12 @@ export function initHeroVideo(root = document) {
 
   const markFallback = () => hero.classList.add('is-fallback');
 
+  const hasSource = Boolean(
+    video.currentSrc || video.src || video.querySelector('source'),
+  );
+
   const tryPlay = () => {
+    if (!hasSource) return;
     const result = video.play();
     if (result && typeof result.catch === 'function') {
       result.catch(markFallback);
@@ -16,13 +21,19 @@ export function initHeroVideo(root = document) {
   };
 
   if (video.readyState >= 2) {
-    tryPlay();
+    if (hasSource) {
+      tryPlay();
+    } else {
+      markFallback();
+    }
   } else {
     video.addEventListener('loadeddata', tryPlay, { once: true });
     video.addEventListener('error', markFallback, { once: true });
-    // No source yet in v1 — attempt play; rejection triggers fallback
-    if (!video.currentSrc && video.networkState === HTMLMediaElement.NETWORK_EMPTY) {
-      tryPlay();
+    if (
+      !hasSource &&
+      video.networkState === HTMLMediaElement.NETWORK_EMPTY
+    ) {
+      markFallback();
     }
   }
 
