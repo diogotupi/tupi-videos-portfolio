@@ -12,10 +12,215 @@
     />
   </head>
   <body>
-    <div id="app">
-      <a class="skip-link" href="#sobre">Pular para o conteúdo</a>
-      <div class="grain" aria-hidden="true"></div>
+    <a class="skip-link" href="#sobre">Pular para o conteúdo</a>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="site-nav" data-nav>
+      <a class="site-nav__logo" href="#top">Diogo Tupi</a>
+      <button
+        class="site-nav__toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav-links"
+        data-nav-toggle
+      >
+        Menu
+      </button>
+      <nav id="site-nav-links" class="site-nav__links" data-nav-links>
+        <a href="#sobre">Sobre</a>
+        <a href="#trabalhos">Trabalhos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="Apresentação">
+        <div class="hero__media">
+          <video
+            id="hero-reel"
+            class="hero__video"
+            muted
+            loop
+            playsinline
+            autoplay
+            preload="metadata"
+            poster=""
+            data-hero-video
+          >
+            <!-- Swap src later: <source src="/media/reel.mp4" type="video/mp4" /> -->
+          </video>
+          <div class="hero__fallback" data-hero-fallback aria-hidden="true"></div>
+          <div class="hero__veil" aria-hidden="true"></div>
+        </div>
+        <div class="hero__content">
+          <p class="hero__label" data-hero-animate>01 / REEL</p>
+          <h1 class="hero__brand" data-hero-animate>Diogo Tupi</h1>
+          <p class="hero__role" data-hero-animate>editor de vídeo</p>
+          <a class="hero__cta" href="#trabalhos" data-hero-animate>Ver trabalhos</a>
+        </div>
+        <time class="hero__timestamp" datetime="2026-08-03T00:24:55" aria-hidden="true"
+          >2026/08/03 00:24:55</time
+        >
+      </section>
+
+      <section id="sobre" class="about section">
+        <div class="about__photo-wrap js-reveal" data-parallax>
+          <div class="about__photo" id="about-photo">
+            <img
+              src="/media/portrait-placeholder.svg"
+              alt="Foto de Diogo Tupi — placeholder"
+              width="640"
+              height="800"
+            />
+          </div>
+        </div>
+        <div class="about__copy js-reveal">
+          <p class="section__label">Sobre</p>
+          <h2 class="section__title">Quem sou</h2>
+          <p>
+            Olá — sou Diogo Tupi, editor de vídeo. Trabalho com narrativa visual,
+            ritmo e cor para transformar rushes em histórias que respiram.
+          </p>
+          <p>
+            Do comercial ao clipe, do documentário ao conteúdo digital, cuido do
+            corte fino, do som e da atmosfera até o frame final.
+          </p>
+          <p>
+            Este texto é placeholder: depois trocamos pela bio real, clientes e
+            o tom que você quiser.
+          </p>
+        </div>
+      </section>
+
+      <section id="trabalhos" class="works section">
+        <header class="works__header js-reveal">
+          <p class="section__label">Portfolio</p>
+          <h2 class="section__title">Trabalhos</h2>
+          <p class="section__lede">
+            Seleção de peças recentes — placeholders até entrarem os originais.
+          </p>
+        </header>
+        <ul class="works__grid">
+          <li class="works__item js-reveal" data-jagged>
+            <button
+              type="button"
+              class="works__card"
+              data-lightbox-open
+              data-title="Neon Drift"
+              data-tag="Comercial"
+              data-src=""
+            >
+              <div class="works__thumb" style="--thumb: #2a4a4a"></div>
+              <div class="works__meta">
+                <span class="works__tag">Comercial</span>
+                <h3 class="works__title">Neon Drift</h3>
+              </div>
+            </button>
+          </li>
+          <li class="works__item js-reveal">
+            <button
+              type="button"
+              class="works__card"
+              data-lightbox-open
+              data-title="Maré Baixa"
+              data-tag="Documentary"
+              data-src=""
+            >
+              <div class="works__thumb" style="--thumb: #314f3a"></div>
+              <div class="works__meta">
+                <span class="works__tag">Documentary</span>
+                <h3 class="works__title">Maré Baixa</h3>
+              </div>
+            </button>
+          </li>
+          <li class="works__item js-reveal" data-jagged>
+            <button
+              type="button"
+              class="works__card"
+              data-lightbox-open
+              data-title="Fita Laranja"
+              data-tag="Music video"
+              data-src=""
+            >
+              <div class="works__thumb" style="--thumb: #3d2f28"></div>
+              <div class="works__meta">
+                <span class="works__tag">Music video</span>
+                <h3 class="works__title">Fita Laranja</h3>
+              </div>
+            </button>
+          </li>
+          <li class="works__item js-reveal">
+            <button
+              type="button"
+              class="works__card"
+              data-lightbox-open
+              data-title="Corte Seco"
+              data-tag="Short form"
+              data-src=""
+            >
+              <div class="works__thumb" style="--thumb: #1f3a45"></div>
+              <div class="works__meta">
+                <span class="works__tag">Short form</span>
+                <h3 class="works__title">Corte Seco</h3>
+              </div>
+            </button>
+          </li>
+        </ul>
+      </section>
+
+      <section id="contato" class="contact section js-reveal">
+        <p class="section__label">Contato</p>
+        <h2 class="section__title">Vamos conversar</h2>
+        <p class="contact__lede">
+          Tem um projeto? Manda um alô — placeholder de e-mail abaixo.
+        </p>
+        <a class="contact__email" href="mailto:ola@diogotupi.placeholder"
+          >ola@diogotupi.placeholder</a
+        >
+        <ul class="contact__social">
+          <li>
+            <a href="https://instagram.com/" rel="noopener noreferrer" target="_blank"
+              >Instagram</a
+            >
+          </li>
+          <li>
+            <a href="https://vimeo.com/" rel="noopener noreferrer" target="_blank"
+              >Vimeo</a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span data-year></span> Diogo Tupi</p>
+    </footer>
+
+    <div
+      id="lightbox"
+      class="lightbox"
+      hidden
+      data-lightbox
+      role="dialog"
+      aria-modal="true"
+      aria-label="Player de trabalho"
+    >
+      <div class="lightbox__backdrop" data-lightbox-close></div>
+      <div class="lightbox__panel">
+        <button type="button" class="lightbox__close" data-lightbox-close aria-label="Fechar">
+          Fechar
+        </button>
+        <p class="lightbox__tag" data-lightbox-tag></p>
+        <h3 class="lightbox__title" data-lightbox-title></h3>
+        <div class="lightbox__player">
+          <video data-lightbox-video controls playsinline></video>
+          <p class="lightbox__empty" data-lightbox-empty hidden>
+            Vídeo em breve — troque o placeholder quando tiver o arquivo.
+          </p>
+        </div>
+      </div>
     </div>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
