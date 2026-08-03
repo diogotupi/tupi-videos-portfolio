@@ -223,10 +223,16 @@
   align-items: center;
 }
 
-.about__photo {
+.about__photo-wrap {
   position: relative;
   display: inline-block;
   max-width: 420px;
+  outline: 3px solid var(--accent);
+  outline-offset: 6px;
+  background: var(--bg-elevated);
+}
+
+.about__photo {
   clip-path: polygon(
     2% 4%,
     96% 0%,
@@ -235,9 +241,6 @@
     4% 97%,
     0% 18%
   );
-  outline: 3px solid var(--accent);
-  outline-offset: 6px;
-  background: var(--bg-elevated);
 }
 
 .about__photo img {
