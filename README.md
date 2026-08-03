@@ -4,7 +4,11 @@ One-page portfolio for video editor **Diogo Tupi**. Dark teal and burnt orange, 
 
 ## Status
 
-**v1.0 smoke verified** — 2026-08-03. `npm test` (11/11), `npm run build`, and preview at `http://127.0.0.1:4173/` pass: hero brand, grain overlay, section anchors (`#sobre`, `#trabalhos`, `#contato`), works 2-col grid, reduced-motion rules, nav/lightbox markup, and tracked `src/effects/.gitkeep`.
+**v1.0 — 2026-08-03**
+
+- **Automated:** `npm test` (11/11) and `npm run build` pass.
+- **Structural smoke** (preview HTML/CSS via HTTP fetch at `http://127.0.0.1:4173/`, not a browser): hero brand markup, grain overlay element, section anchors (`#sobre`, `#trabalhos`, `#contato`), works 2-col grid rules, reduced-motion CSS, nav/lightbox markup, tracked `src/effects/.gitkeep`.
+- **Still needs a human browser pass for:** hero visual dominance/timestamp feel, about portrait cut-out look, lightbox empty-state interaction, mobile nav toggle behavior, reduced-motion animation feel.
 
 ```bash
 npm test && npm run build
