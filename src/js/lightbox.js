@@ -4,7 +4,10 @@ export function initLightbox(root = document) {
 
   const titleEl = box.querySelector('[data-lightbox-title]');
   const tagEl = box.querySelector('[data-lightbox-tag]');
+  const creditEl = box.querySelector('[data-lightbox-credit]');
+  const rolesEl = box.querySelector('[data-lightbox-roles]');
   const video = box.querySelector('[data-lightbox-video]');
+  const embed = box.querySelector('[data-lightbox-embed]');
   const empty = box.querySelector('[data-lightbox-empty]');
   let savedOverflow = '';
   let triggerEl = null;
@@ -14,22 +17,35 @@ export function initLightbox(root = document) {
     const closeBtn = panel.querySelector('button[data-lightbox-close]');
     if (closeBtn) return closeBtn;
     return panel.querySelector(
-      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
     );
+  };
+
+  const clearMedia = () => {
+    if (video) {
+      try {
+        if (typeof video.pause === 'function') video.pause();
+      } catch {
+        /* jsdom */
+      }
+      video.removeAttribute('src');
+      try {
+        if (typeof video.load === 'function') video.load();
+      } catch {
+        /* jsdom */
+      }
+      video.hidden = true;
+    }
+    if (embed) {
+      embed.removeAttribute('src');
+      embed.hidden = true;
+    }
   };
 
   const close = () => {
     box.hidden = true;
     document.body.style.overflow = savedOverflow;
-    if (video) {
-      try {
-        if (typeof video.pause === 'function') video.pause();
-      } catch {}
-      video.removeAttribute('src');
-      try {
-        if (typeof video.load === 'function') video.load();
-      } catch {}
-    }
+    clearMedia();
     if (triggerEl && document.contains(triggerEl)) {
       triggerEl.focus();
     }
@@ -43,20 +59,40 @@ export function initLightbox(root = document) {
     triggerEl = btn;
     const title = btn.getAttribute('data-title') || '';
     const tag = btn.getAttribute('data-tag') || '';
+    const credit = btn.getAttribute('data-client') || '';
+    const roles = btn.getAttribute('data-roles') || '';
     const src = btn.getAttribute('data-src') || '';
+    const embedSrc = btn.getAttribute('data-embed') || '';
+
     if (titleEl) titleEl.textContent = title;
     if (tagEl) tagEl.textContent = tag;
-    if (src) {
+    if (creditEl) {
+      creditEl.textContent = credit ? `Cliente: ${credit}` : '';
+      creditEl.hidden = !credit;
+    }
+    if (rolesEl) {
+      rolesEl.textContent = roles ? `O que eu fiz: ${roles}` : '';
+      rolesEl.hidden = !roles;
+    }
+
+    clearMedia();
+
+    const isVertical = Boolean(btn.closest('[data-vertical]'));
+    box.classList.toggle('is-vertical', isVertical);
+
+    if (embedSrc && embed) {
       if (empty) empty.hidden = true;
-      if (video) {
-        video.hidden = false;
-        video.src = src;
-        video.play()?.catch(() => {});
-      }
+      embed.hidden = false;
+      embed.src = embedSrc;
+    } else if (src && video) {
+      if (empty) empty.hidden = true;
+      video.hidden = false;
+      video.src = src;
+      video.play()?.catch(() => {});
     } else {
-      if (video) video.hidden = true;
       if (empty) empty.hidden = false;
     }
+
     box.hidden = false;
     document.body.style.overflow = 'hidden';
     getFocusTarget()?.focus();

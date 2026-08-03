@@ -1,6 +1,20 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { initLightbox } from './lightbox.js';
 
+const lightboxMarkup = `
+  <button data-lightbox-open data-title="Neon Drift" data-tag="Comercial" data-src="" data-embed="">Open</button>
+  <div data-lightbox hidden>
+    <button data-lightbox-close>Fechar</button>
+    <p data-lightbox-tag></p>
+    <h3 data-lightbox-title></h3>
+    <p data-lightbox-credit hidden></p>
+    <p data-lightbox-roles hidden></p>
+    <video data-lightbox-video hidden></video>
+    <iframe data-lightbox-embed hidden></iframe>
+    <p data-lightbox-empty hidden></p>
+  </div>
+`;
+
 describe('initLightbox', () => {
   let pauseStub;
   let loadStub;
@@ -8,16 +22,7 @@ describe('initLightbox', () => {
   beforeEach(() => {
     pauseStub = vi.spyOn(HTMLMediaElement.prototype, 'pause').mockImplementation(() => {});
     loadStub = vi.spyOn(HTMLMediaElement.prototype, 'load').mockImplementation(() => {});
-    document.body.innerHTML = `
-      <button data-lightbox-open data-title="Neon Drift" data-tag="Comercial" data-src="">Open</button>
-      <div data-lightbox hidden>
-        <button data-lightbox-close>Fechar</button>
-        <p data-lightbox-tag></p>
-        <h3 data-lightbox-title></h3>
-        <video data-lightbox-video></video>
-        <p data-lightbox-empty hidden></p>
-      </div>
-    `;
+    document.body.innerHTML = lightboxMarkup;
   });
 
   afterEach(() => {
@@ -33,6 +38,38 @@ describe('initLightbox', () => {
     expect(document.querySelector('[data-lightbox-title]').textContent).toBe('Neon Drift');
     expect(document.querySelector('[data-lightbox-tag]').textContent).toBe('Comercial');
     expect(document.querySelector('[data-lightbox-empty]').hidden).toBe(false);
+  });
+
+  it('opens embed iframe when data-embed is set', () => {
+    document.body.innerHTML = `
+      <button
+        data-lightbox-open
+        data-title="Reel"
+        data-tag="Reels"
+        data-client="Cliente X"
+        data-roles="Edição"
+        data-embed="https://player.vimeo.com/video/123"
+        data-src=""
+      >Open</button>
+      <div data-lightbox hidden>
+        <button data-lightbox-close>Fechar</button>
+        <p data-lightbox-tag></p>
+        <h3 data-lightbox-title></h3>
+        <p data-lightbox-credit hidden></p>
+        <p data-lightbox-roles hidden></p>
+        <video data-lightbox-video hidden></video>
+        <iframe data-lightbox-embed hidden></iframe>
+        <p data-lightbox-empty hidden></p>
+      </div>
+    `;
+    initLightbox(document);
+    document.querySelector('[data-lightbox-open]').click();
+    const iframe = document.querySelector('[data-lightbox-embed]');
+    expect(iframe.hidden).toBe(false);
+    expect(iframe.getAttribute('src')).toBe('https://player.vimeo.com/video/123');
+    expect(document.querySelector('[data-lightbox-credit]').textContent).toBe('Cliente: Cliente X');
+    expect(document.querySelector('[data-lightbox-roles]').textContent).toBe('O que eu fiz: Edição');
+    expect(document.querySelector('[data-lightbox-empty]').hidden).toBe(true);
   });
 
   it('closes on close button', () => {
@@ -52,13 +89,16 @@ describe('initLightbox', () => {
   it('restores body overflow after re-opening without closing', () => {
     document.body.style.overflow = '';
     document.body.innerHTML = `
-      <button id="open-a" data-lightbox-open data-title="A" data-tag="Tag" data-src="">Open A</button>
-      <button id="open-b" data-lightbox-open data-title="B" data-tag="Tag" data-src="">Open B</button>
+      <button id="open-a" data-lightbox-open data-title="A" data-tag="Tag" data-src="" data-embed="">Open A</button>
+      <button id="open-b" data-lightbox-open data-title="B" data-tag="Tag" data-src="" data-embed="">Open B</button>
       <div data-lightbox hidden>
         <button data-lightbox-close>Fechar</button>
         <p data-lightbox-tag></p>
         <h3 data-lightbox-title></h3>
-        <video data-lightbox-video></video>
+        <p data-lightbox-credit hidden></p>
+        <p data-lightbox-roles hidden></p>
+        <video data-lightbox-video hidden></video>
+        <iframe data-lightbox-embed hidden></iframe>
         <p data-lightbox-empty hidden></p>
       </div>
     `;

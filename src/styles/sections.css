@@ -250,11 +250,7 @@
 .about__photo img {
   width: 100%;
   height: auto;
-  filter: contrast(1.15) grayscale(0.35);
-  -webkit-mask-image: radial-gradient(circle, #000 1.1px, transparent 1.35px);
-  mask-image: radial-gradient(circle, #000 1.1px, transparent 1.35px);
-  -webkit-mask-size: 4px 4px;
-  mask-size: 4px 4px;
+  filter: contrast(1.08) saturate(0.92);
 }
 
 .about__copy p {
@@ -264,6 +260,28 @@
 
 .about__copy p + p {
   margin-top: 0.85rem;
+}
+
+.btn-whatsapp {
+  display: inline-block;
+  margin-top: var(--space-md);
+  padding: 0.75rem 1.35rem;
+  background: var(--accent);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  transition: transform 0.2s var(--ease), filter 0.2s var(--ease);
+}
+
+.btn-whatsapp:hover {
+  filter: brightness(1.08);
+  transform: translate(-1px, 2px);
+}
+
+.btn-whatsapp--lg {
+  font-size: clamp(1.2rem, 3vw, 1.75rem);
+  padding: 0.9rem 1.6rem;
 }
 
 .works__header {
@@ -293,9 +311,16 @@
 
 .works__thumb {
   aspect-ratio: 16 / 10;
-  background: var(--thumb, var(--bg-elevated));
+  background:
+    linear-gradient(160deg, transparent 40%, rgba(0, 0, 0, 0.35)),
+    var(--thumb, var(--bg-elevated));
   outline: 1px solid transparent;
   transition: outline-color 0.2s var(--ease);
+}
+
+.works__item[data-vertical] .works__thumb {
+  aspect-ratio: 9 / 14;
+  max-height: 320px;
 }
 
 .works__card:hover .works__thumb {
@@ -333,33 +358,7 @@
 .contact__lede {
   color: var(--text-muted);
   max-width: 36ch;
-}
-
-.contact__email {
-  display: inline-block;
-  margin: var(--space-md) 0;
-  font-family: var(--font-display);
-  font-size: clamp(1.4rem, 4vw, 2.2rem);
-  font-weight: 700;
-  border-bottom: 2px solid var(--accent);
-}
-
-.contact__social {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: var(--space-md);
-}
-
-.contact__social a {
-  color: var(--text-muted);
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-}
-
-.contact__social a:hover {
-  color: var(--accent);
+  margin-bottom: var(--space-sm);
 }
 
 .site-footer {
@@ -416,14 +415,43 @@
 }
 
 .lightbox__title {
-  margin: 0.35rem 0 var(--space-sm);
+  margin: 0.35rem 0 0.35rem;
   font-family: var(--font-display);
 }
 
-.lightbox__player video {
+.lightbox__credit,
+.lightbox__roles {
+  margin: 0.15rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.lightbox__roles {
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.lightbox__player video,
+.lightbox__player iframe {
   width: 100%;
   max-height: 70vh;
   background: #000;
+  border: 0;
+}
+
+.lightbox__player iframe {
+  aspect-ratio: 16 / 9;
+  min-height: 240px;
+}
+
+.lightbox.is-vertical .lightbox__panel {
+  width: min(420px, 100%);
+}
+
+.lightbox.is-vertical .lightbox__player iframe {
+  aspect-ratio: 9 / 16;
+  max-height: 75vh;
 }
 
 .lightbox__empty {
