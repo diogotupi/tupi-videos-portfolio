@@ -36,6 +36,8 @@
     <main id="top">
       <section class="hero" aria-label="Apresentação">
         <div class="hero__media">
+          <!-- Hero reel: drop file at public/media/reel.mp4, then add inside #hero-reel:
+               <source src="/media/reel.mp4" type="video/mp4" /> -->
           <video
             id="hero-reel"
             class="hero__video"
@@ -46,9 +48,7 @@
             preload="metadata"
             poster=""
             data-hero-video
-          >
-            <!-- Swap src later: <source src="/media/reel.mp4" type="video/mp4" /> -->
-          </video>
+          ></video>
           <div class="hero__fallback" data-hero-fallback aria-hidden="true"></div>
           <div class="hero__veil" aria-hidden="true"></div>
         </div>
