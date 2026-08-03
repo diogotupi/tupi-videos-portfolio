@@ -2,6 +2,15 @@
 
 One-page portfolio for video editor **Diogo Tupi**. Dark teal and burnt orange, halftone collage, grain overlay — built with Vite, vanilla HTML/CSS/JS. Placeholder media and copy are meant to be swapped without touching layout or modules.
 
+## Status
+
+**v1.0 smoke verified** — 2026-08-03. `npm test` (11/11), `npm run build`, and preview at `http://127.0.0.1:4173/` pass: hero brand, grain overlay, section anchors (`#sobre`, `#trabalhos`, `#contato`), works 2-col grid, reduced-motion rules, nav/lightbox markup, and tracked `src/effects/.gitkeep`.
+
+```bash
+npm test && npm run build
+npm run preview -- --host 127.0.0.1 --port 4173
+```
+
 ## Commands
 
 ```bash
