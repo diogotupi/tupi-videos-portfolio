@@ -232,6 +232,10 @@
   background: var(--bg-elevated);
 }
 
+[data-parallax] {
+  transition: none;
+}
+
 .about__photo {
   clip-path: polygon(
     2% 4%,

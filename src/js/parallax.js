@@ -10,7 +10,8 @@ export function initParallax(root = document) {
     ticking = false;
     const rect = el.getBoundingClientRect();
     const viewH = window.innerHeight || 1;
-    const progress = (viewH - rect.top) / (viewH + rect.height);
+    const rawProgress = (viewH - rect.top) / (viewH + rect.height);
+    const progress = Math.min(1, Math.max(0, rawProgress));
     const offset = (progress - 0.5) * 24;
     el.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0)`;
   };
