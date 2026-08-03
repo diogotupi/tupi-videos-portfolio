@@ -9,6 +9,7 @@ export function initLightbox(root = document) {
   const video = box.querySelector('[data-lightbox-video]');
   const embed = box.querySelector('[data-lightbox-embed]');
   const empty = box.querySelector('[data-lightbox-empty]');
+  const player = box.querySelector('.lightbox__player');
   let savedOverflow = '';
   let triggerEl = null;
 
@@ -39,6 +40,9 @@ export function initLightbox(root = document) {
     if (embed) {
       embed.removeAttribute('src');
       embed.hidden = true;
+    }
+    if (player) {
+      player.classList.remove('is-embed', 'is-video', 'is-vertical-media');
     }
   };
 
@@ -82,10 +86,15 @@ export function initLightbox(root = document) {
 
     if (embedSrc && embed) {
       if (empty) empty.hidden = true;
+      if (player) {
+        player.classList.add('is-embed');
+        if (isVertical) player.classList.add('is-vertical-media');
+      }
       embed.hidden = false;
       embed.src = embedSrc;
     } else if (src && video) {
       if (empty) empty.hidden = true;
+      if (player) player.classList.add('is-video');
       video.hidden = false;
       video.src = src;
       video.play()?.catch(() => {});
