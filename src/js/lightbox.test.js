@@ -48,4 +48,36 @@ describe('initLightbox', () => {
     document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
     expect(document.querySelector('[data-lightbox]').hidden).toBe(true);
   });
+
+  it('restores body overflow after re-opening without closing', () => {
+    document.body.style.overflow = '';
+    document.body.innerHTML = `
+      <button id="open-a" data-lightbox-open data-title="A" data-tag="Tag" data-src="">Open A</button>
+      <button id="open-b" data-lightbox-open data-title="B" data-tag="Tag" data-src="">Open B</button>
+      <div data-lightbox hidden>
+        <button data-lightbox-close>Fechar</button>
+        <p data-lightbox-tag></p>
+        <h3 data-lightbox-title></h3>
+        <video data-lightbox-video></video>
+        <p data-lightbox-empty hidden></p>
+      </div>
+    `;
+    initLightbox(document);
+    document.querySelector('#open-a').click();
+    expect(document.body.style.overflow).toBe('hidden');
+    document.querySelector('#open-b').click();
+    expect(document.body.style.overflow).toBe('hidden');
+    document.querySelector('[data-lightbox-close]').click();
+    expect(document.body.style.overflow).toBe('');
+  });
+
+  it('focuses close button on open and restores trigger on close', () => {
+    initLightbox(document);
+    const trigger = document.querySelector('[data-lightbox-open]');
+    const closeBtn = document.querySelector('[data-lightbox-close]');
+    trigger.click();
+    expect(document.activeElement).toBe(closeBtn);
+    closeBtn.click();
+    expect(document.activeElement).toBe(trigger);
+  });
 });

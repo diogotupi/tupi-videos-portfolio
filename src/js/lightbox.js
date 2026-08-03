@@ -7,6 +7,16 @@ export function initLightbox(root = document) {
   const video = box.querySelector('[data-lightbox-video]');
   const empty = box.querySelector('[data-lightbox-empty]');
   let savedOverflow = '';
+  let triggerEl = null;
+
+  const getFocusTarget = () => {
+    const panel = box.querySelector('.lightbox__panel') || box;
+    const closeBtn = panel.querySelector('button[data-lightbox-close]');
+    if (closeBtn) return closeBtn;
+    return panel.querySelector(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+  };
 
   const close = () => {
     box.hidden = true;
@@ -20,10 +30,17 @@ export function initLightbox(root = document) {
         if (typeof video.load === 'function') video.load();
       } catch {}
     }
+    if (triggerEl && document.contains(triggerEl)) {
+      triggerEl.focus();
+    }
+    triggerEl = null;
   };
 
   const open = (btn) => {
-    savedOverflow = document.body.style.overflow;
+    if (box.hidden) {
+      savedOverflow = document.body.style.overflow;
+    }
+    triggerEl = btn;
     const title = btn.getAttribute('data-title') || '';
     const tag = btn.getAttribute('data-tag') || '';
     const src = btn.getAttribute('data-src') || '';
@@ -42,6 +59,7 @@ export function initLightbox(root = document) {
     }
     box.hidden = false;
     document.body.style.overflow = 'hidden';
+    getFocusTarget()?.focus();
   };
 
   root.querySelectorAll('[data-lightbox-open]').forEach((btn) => {
