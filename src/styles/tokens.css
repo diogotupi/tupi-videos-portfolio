@@ -1,0 +1,19 @@
+:root {
+  --bg: #1d3333;
+  --bg-elevated: #243d3d;
+  --accent: #e55b1f;
+  --text: #f2ebe3;
+  --text-muted: rgba(242, 235, 227, 0.65);
+  --ink: #0a0a0a;
+  --font-display: "Syne", sans-serif;
+  --font-body: "IBM Plex Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 6rem;
+  --nav-h: 4rem;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --grain-opacity: 0.08;
+}
