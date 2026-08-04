@@ -1,5 +1,5 @@
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { initScrambleText } from './scramble-text.js';
+import { describe, it, expect, afterEach, vi } from 'vitest';
+import { initSoftText } from './soft-text.js';
 import { initHalftoneTrail } from './halftone-trail.js';
 
 describe('motion extras', () => {
@@ -8,14 +8,14 @@ describe('motion extras', () => {
     document.body.innerHTML = '';
   });
 
-  it('scramble no-ops under reduced motion', () => {
+  it('soft text marks reduced-motion nodes as in', () => {
     document.body.innerHTML = `<h1 data-scramble>Diogo Tupi</h1>`;
     vi.stubGlobal(
       'matchMedia',
       vi.fn().mockReturnValue({ matches: true, addEventListener() {}, removeEventListener() {} }),
     );
-    expect(initScrambleText(document)).toBeNull();
-    expect(document.querySelector('[data-scramble]').textContent).toBe('Diogo Tupi');
+    expect(initSoftText(document)).toBeNull();
+    expect(document.querySelector('[data-scramble]').classList.contains('is-soft-in')).toBe(true);
   });
 
   it('halftone trail no-ops without fine pointer', () => {

@@ -650,6 +650,14 @@
     transition: none;
   }
 
+  [data-scramble] .soft-letter,
+  [data-soft-text] .soft-letter {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+  }
+
   .halftone-trail {
     display: none;
   }
