@@ -11,6 +11,7 @@ import { initHalftoneTrail } from './js/halftone-trail.js';
 import { initSoftText } from './js/soft-text.js';
 import { initCardTilt } from './js/card-tilt.js';
 import { initLiveTimestamp } from './js/live-timestamp.js';
+import { initAmbientElectric } from './js/ambient-electric.js';
 
 initHeroVideo();
 initNav();
@@ -22,3 +23,4 @@ initHalftoneTrail();
 initSoftText();
 initCardTilt();
 initLiveTimestamp();
+initAmbientElectric();

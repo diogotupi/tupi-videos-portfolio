@@ -93,4 +93,46 @@ describe('initThumbPreview', () => {
     expect(video._t).toBe(0);
     playStub.mockRestore();
   });
+
+  it('plays muted preview on touch press-and-hold without opening', async () => {
+    vi.stubGlobal(
+      'matchMedia',
+      vi.fn((query) => ({
+        matches: query.includes('prefers-reduced-motion') ? false : false,
+        addEventListener() {},
+        removeEventListener() {},
+      })),
+    );
+    vi.useFakeTimers();
+    const playStub = vi
+      .spyOn(HTMLMediaElement.prototype, 'play')
+      .mockImplementation(() => Promise.resolve());
+    const pauseStub = vi
+      .spyOn(HTMLMediaElement.prototype, 'pause')
+      .mockImplementation(() => {});
+
+    const touchPointer = (type, pointerId = 1) => {
+      const event = new Event(type, { bubbles: true, cancelable: true });
+      Object.defineProperty(event, 'pointerType', { value: 'touch' });
+      Object.defineProperty(event, 'pointerId', { value: pointerId });
+      Object.defineProperty(event, 'button', { value: 0 });
+      return event;
+    };
+
+    initThumbPreview(document);
+    const btn = document.querySelector('[data-lightbox-open]');
+    btn.dispatchEvent(touchPointer('pointerdown'));
+    vi.advanceTimersByTime(200);
+    expect(playStub).toHaveBeenCalled();
+
+    const click = new MouseEvent('click', { bubbles: true, cancelable: true });
+    btn.dispatchEvent(click);
+    expect(click.defaultPrevented).toBe(true);
+
+    btn.dispatchEvent(touchPointer('pointerup'));
+    expect(pauseStub).toHaveBeenCalled();
+    vi.useRealTimers();
+    playStub.mockRestore();
+    pauseStub.mockRestore();
+  });
 });

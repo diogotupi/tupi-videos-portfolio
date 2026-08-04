@@ -10,7 +10,6 @@ export function initThumbPreview(root = document) {
   if (prefersReducedMotion()) return;
 
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
-  if (!finePointer.matches) return;
 
   root.querySelectorAll('[data-lightbox-open]').forEach((btn) => {
     const thumb = btn.querySelector('.works__thumb');
@@ -24,6 +23,9 @@ export function initThumbPreview(root = document) {
     let generated = false;
     let startAt = video ? posterTime(video) : 0;
     let onTimeUpdate = null;
+    let holdTimer = null;
+    let suppressClick = false;
+    let activePointerId = null;
 
     const ensureVideo = () => {
       if (video) return video;
@@ -50,6 +52,11 @@ export function initThumbPreview(root = document) {
     };
 
     const stop = () => {
+      if (holdTimer) {
+        window.clearTimeout(holdTimer);
+        holdTimer = null;
+      }
+      activePointerId = null;
       if (!video) return;
       clearBound();
       video.pause();
@@ -97,10 +104,45 @@ export function initThumbPreview(root = document) {
       if (play && typeof play.catch === 'function') play.catch(() => {});
     };
 
-    btn.addEventListener('mouseenter', start);
-    btn.addEventListener('mouseleave', stop);
-    btn.addEventListener('focusout', (e) => {
-      if (!btn.contains(e.relatedTarget)) stop();
+    if (finePointer.matches) {
+      btn.addEventListener('mouseenter', start);
+      btn.addEventListener('mouseleave', stop);
+      btn.addEventListener('focusout', (e) => {
+        if (!btn.contains(e.relatedTarget)) stop();
+      });
+    }
+
+    // Touch / pen: press-and-hold previews like desktop hover
+    btn.addEventListener('pointerdown', (e) => {
+      if (e.pointerType === 'mouse') return;
+      if (e.button != null && e.button !== 0) return;
+      activePointerId = e.pointerId;
+      suppressClick = false;
+      holdTimer = window.setTimeout(() => {
+        holdTimer = null;
+        suppressClick = true;
+        start();
+      }, 180);
     });
+
+    const endHold = (e) => {
+      if (activePointerId != null && e.pointerId !== activePointerId) return;
+      stop();
+    };
+
+    btn.addEventListener('pointerup', endHold);
+    btn.addEventListener('pointercancel', endHold);
+    btn.addEventListener('pointerleave', endHold);
+
+    btn.addEventListener(
+      'click',
+      (e) => {
+        if (!suppressClick) return;
+        e.preventDefault();
+        e.stopPropagation();
+        suppressClick = false;
+      },
+      true,
+    );
   });
 }

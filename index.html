@@ -16,6 +16,7 @@
   </head>
   <body>
     <a class="skip-link" href="#sobre">Pular para o conteúdo</a>
+    <div class="site-ambient" aria-hidden="true"></div>
     <div class="grain" aria-hidden="true"></div>
 
     <header class="site-nav" data-nav>
@@ -119,8 +120,17 @@
             href="https://wa.me/5521936182629"
             target="_blank"
             rel="noopener noreferrer"
-            >WhatsApp</a
           >
+            <svg
+              class="btn-whatsapp__neon"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <rect pathLength="100" x="1.5" y="1.5" width="97" height="97" rx="2.5" />
+            </svg>
+            <span class="btn-whatsapp__label">WhatsApp</span>
+          </a>
         </div>
       </section>
 
@@ -159,7 +169,7 @@
               </div>
             </button>
           </li>
-          <li class="works__item js-reveal" data-vertical>
+          <li class="works__item js-reveal" data-jagged data-vertical>
             <button
               type="button"
               class="works__card" data-tilt
@@ -403,14 +413,38 @@
           href="https://wa.me/5521936182629"
           target="_blank"
           rel="noopener noreferrer"
-          >WhatsApp</a
         >
+          <svg
+            class="btn-whatsapp__neon"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <rect pathLength="100" x="1.5" y="1.5" width="97" height="97" rx="2.5" />
+          </svg>
+          <span class="btn-whatsapp__label">WhatsApp</span>
+        </a>
       </section>
     </main>
 
     <footer class="site-footer">
       <p>© <span data-year></span> TUPI</p>
     </footer>
+
+    <a
+      class="wa-float"
+      href="https://wa.me/5521936182629"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Abrir WhatsApp"
+    >
+      <svg class="wa-float__icon" viewBox="0 0 32 32" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M16.01 3C9.4 3 4.04 8.36 4.04 14.97c0 2.1.55 4.14 1.6 5.94L4 29l8.28-1.6a12.9 12.9 0 0 0 3.73.55c6.61 0 11.97-5.36 11.97-11.97C27.98 8.36 22.62 3 16.01 3zm0 21.86c-1.2 0-2.38-.22-3.5-.66l-.25-.1-4.91.95.94-4.79-.16-.27a9.86 9.86 0 0 1-1.51-5.05c0-5.45 4.43-9.88 9.89-9.88s9.88 4.43 9.88 9.88-4.43 9.92-9.88 9.92zm5.43-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"
+        />
+      </svg>
+    </a>
 
     <div
       id="lightbox"
