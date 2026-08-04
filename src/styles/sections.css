@@ -21,6 +21,7 @@
   width: auto;
   object-fit: contain;
   flex-shrink: 0;
+  opacity: 0.4;
 }
 
 .site-nav__links {
