@@ -655,6 +655,14 @@
 }
 
 @media (max-width: 700px) {
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  .works__grid {
+    grid-template-columns: 1fr;
+  }
+
   .hero__role {
     white-space: normal;
   }
