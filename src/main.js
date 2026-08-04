@@ -7,6 +7,10 @@ import { initReveal } from './js/reveal.js';
 import { initParallax } from './js/parallax.js';
 import { initLightbox } from './js/lightbox.js';
 import { initThumbPreview } from './js/thumb-preview.js';
+import { initHalftoneTrail } from './js/halftone-trail.js';
+import { initScrambleText } from './js/scramble-text.js';
+import { initCardTilt } from './js/card-tilt.js';
+import { initLiveTimestamp } from './js/live-timestamp.js';
 
 initHeroVideo();
 initNav();
@@ -14,3 +18,7 @@ initReveal();
 initParallax();
 initLightbox();
 initThumbPreview();
+initHalftoneTrail();
+initScrambleText();
+initCardTilt();
+initLiveTimestamp();
