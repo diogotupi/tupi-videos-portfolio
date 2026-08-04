@@ -331,6 +331,17 @@
   transform-origin: center center;
 }
 
+.works__thumb-media--preview {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.2s var(--ease);
+}
+
+.works__thumb-media--preview.is-playing {
+  opacity: 1;
+}
+
 .works__item[data-vertical] .works__thumb {
   aspect-ratio: 9 / 14;
   max-height: 320px;
