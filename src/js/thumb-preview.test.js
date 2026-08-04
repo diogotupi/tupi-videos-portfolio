@@ -70,13 +70,15 @@ describe('initThumbPreview', () => {
         </div>
       </button>
     `;
+    const playStub = vi
+      .spyOn(HTMLMediaElement.prototype, 'play')
+      .mockImplementation(() => Promise.resolve());
     initThumbPreview(document);
     const btn = document.querySelector('[data-lightbox-open]');
     btn.dispatchEvent(new Event('mouseenter'));
     const video = btn.querySelector('video.works__thumb-media--preview');
     expect(video).toBeTruthy();
     expect(video.getAttribute('src')).toBe('https://example.com/preview.mp4');
-    video.play = vi.fn(() => Promise.resolve());
     Object.defineProperty(video, 'currentTime', {
       configurable: true,
       get() {
@@ -89,5 +91,6 @@ describe('initThumbPreview', () => {
     video._t = 10.2;
     video.dispatchEvent(new Event('timeupdate'));
     expect(video._t).toBe(0);
+    playStub.mockRestore();
   });
 });
