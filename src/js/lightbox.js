@@ -94,7 +94,10 @@ export function initLightbox(root = document) {
       embed.src = embedSrc;
     } else if (src && video) {
       if (empty) empty.hidden = true;
-      if (player) player.classList.add('is-video');
+      if (player) {
+        player.classList.add('is-video');
+        if (isVertical) player.classList.add('is-vertical-media');
+      }
       video.hidden = false;
       video.src = src;
       video.play()?.catch(() => {});
