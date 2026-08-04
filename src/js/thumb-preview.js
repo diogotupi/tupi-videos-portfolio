@@ -17,20 +17,24 @@ export function initThumbPreview(root = document) {
     if (!thumb) return;
 
     let video = thumb.querySelector('video.works__thumb-media');
-    const mp4 = btn.getAttribute('data-src') || '';
+    const previewSrc =
+      btn.getAttribute('data-preview-src') || btn.getAttribute('data-src') || '';
+    const previewEndRaw = btn.getAttribute('data-preview-end');
+    const previewEnd = previewEndRaw ? Number(previewEndRaw) : null;
     let generated = false;
     let startAt = video ? posterTime(video) : 0;
+    let onTimeUpdate = null;
 
     const ensureVideo = () => {
       if (video) return video;
-      if (!mp4) return null;
+      if (!previewSrc) return null;
       video = document.createElement('video');
       video.className = 'works__thumb-media works__thumb-media--preview';
       video.muted = true;
       video.playsInline = true;
-      video.loop = true;
+      video.loop = previewEnd == null || Number.isNaN(previewEnd);
       video.preload = 'metadata';
-      video.setAttribute('src', mp4);
+      video.setAttribute('src', previewSrc);
       video.setAttribute('aria-hidden', 'true');
       thumb.appendChild(video);
       generated = true;
@@ -38,8 +42,16 @@ export function initThumbPreview(root = document) {
       return video;
     };
 
+    const clearBound = () => {
+      if (video && onTimeUpdate) {
+        video.removeEventListener('timeupdate', onTimeUpdate);
+        onTimeUpdate = null;
+      }
+    };
+
     const stop = () => {
       if (!video) return;
+      clearBound();
       video.pause();
       try {
         video.currentTime = startAt;
@@ -55,8 +67,32 @@ export function initThumbPreview(root = document) {
       const el = ensureVideo();
       if (!el) return;
       el.muted = true;
-      el.loop = true;
+      clearBound();
+
+      if (previewEnd != null && !Number.isNaN(previewEnd) && previewEnd > 0) {
+        el.loop = false;
+        onTimeUpdate = () => {
+          if (el.currentTime >= previewEnd) {
+            try {
+              el.currentTime = 0;
+            } catch {
+              /* ignore */
+            }
+            const again = el.play();
+            if (again && typeof again.catch === 'function') again.catch(() => {});
+          }
+        };
+        el.addEventListener('timeupdate', onTimeUpdate);
+      } else {
+        el.loop = true;
+      }
+
       if (generated) el.classList.add('is-playing');
+      try {
+        el.currentTime = startAt;
+      } catch {
+        /* ignore */
+      }
       const play = el.play();
       if (play && typeof play.catch === 'function') play.catch(() => {});
     };
