@@ -326,6 +326,11 @@
   pointer-events: none;
 }
 
+.works__thumb-media--zoom {
+  transform: scale(1.3);
+  transform-origin: center center;
+}
+
 .works__item[data-vertical] .works__thumb {
   aspect-ratio: 9 / 14;
   max-height: 320px;
