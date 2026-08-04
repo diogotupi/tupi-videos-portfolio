@@ -5,7 +5,7 @@
   --text: #f2ebe3;
   --text-muted: rgba(242, 235, 227, 0.65);
   --ink: #0a0a0a;
-  --font-display: "Bebas Neue", sans-serif;
+  --font-display: "space-mono", monospace;
   --font-body: "IBM Plex Sans", sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
   --space-xs: 0.5rem;

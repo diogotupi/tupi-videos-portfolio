@@ -13,19 +13,13 @@
 .site-nav__logo {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 1.55rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  line-height: 0;
 }
 
 .site-nav__mark {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 0.45rem;
-  object-fit: cover;
+  height: 2.35rem;
+  width: auto;
+  object-fit: contain;
   flex-shrink: 0;
 }
 
@@ -136,12 +130,13 @@
 
 .hero__brand {
   margin: 0;
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(1.15rem, 3.2vw, 2.1rem);
-  line-height: 1;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  line-height: 0;
+}
+
+.hero__logo {
+  display: block;
+  width: min(25.2vw, 168px);
+  height: auto;
 }
 
 .hero__role {
