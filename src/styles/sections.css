@@ -258,6 +258,11 @@
   max-width: 42ch;
 }
 
+.about__copy strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
 .about__copy p + p {
   margin-top: 0.85rem;
 }
