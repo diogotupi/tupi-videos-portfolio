@@ -17,23 +17,30 @@ function wrapLetters(el) {
 }
 
 function play(el) {
+  // Hero brand (and any [data-soft-whole]): animate as one block — no letter split
+  if (el.classList.contains('hero__brand') || el.hasAttribute('data-soft-whole')) {
+    el.classList.add('is-soft-in');
+    return;
+  }
   wrapLetters(el);
   el.classList.add('is-soft-in');
 }
 
 export function initSoftText(root = document) {
-  // Support both data-soft-text and legacy data-scramble hooks in markup
   const nodes = [
     ...root.querySelectorAll('[data-soft-text], [data-scramble]'),
   ];
   if (!nodes.length) return null;
 
   if (prefersReducedMotion()) {
-    nodes.forEach((el) => {
-      el.classList.add('is-soft-in');
-    });
+    nodes.forEach((el) => el.classList.add('is-soft-in'));
     return null;
   }
+
+  // Prepare hero brand for whole-block fade (avoid vertical letter wrap)
+  nodes
+    .filter((el) => el.classList.contains('hero__brand') || el.hasAttribute('data-soft-whole'))
+    .forEach((el) => el.classList.add('soft-block'));
 
   nodes
     .filter((el) => el.closest('.hero'))

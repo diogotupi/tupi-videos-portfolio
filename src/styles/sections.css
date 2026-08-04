@@ -587,6 +587,26 @@
   transform: none;
 }
 
+.hero__brand.soft-block,
+[data-soft-whole].soft-block {
+  display: block;
+  white-space: nowrap;
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateY(18px);
+  transition:
+    opacity 0.9s var(--ease),
+    filter 0.9s var(--ease),
+    transform 0.9s var(--ease);
+}
+
+.hero__brand.soft-block.is-soft-in,
+[data-soft-whole].soft-block.is-soft-in {
+  opacity: 1;
+  filter: blur(0);
+  transform: none;
+}
+
 .js-reveal {
   opacity: 0;
   transform: translateY(28px) rotate(-1.2deg) scale(0.96);
@@ -672,6 +692,14 @@
 
   [data-scramble] .soft-letter,
   [data-soft-text] .soft-letter {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+  }
+
+  .hero__brand.soft-block,
+  [data-soft-whole].soft-block {
     opacity: 1;
     filter: none;
     transform: none;
