@@ -3,6 +3,7 @@ import './styles/base.css';
 import './styles/sections.css';
 import { initI18n } from './js/i18n.js';
 import { initHeroVideo } from './js/hero-video.js';
+import { initHeroGlass } from './js/hero-glass.js';
 import { initNav } from './js/nav.js';
 import { initReveal } from './js/reveal.js';
 import { initParallax } from './js/parallax.js';
@@ -17,6 +18,7 @@ import { initTracking } from './js/tracking.js';
 
 initI18n();
 initHeroVideo();
+initHeroGlass();
 initNav();
 initReveal();
 initParallax();
