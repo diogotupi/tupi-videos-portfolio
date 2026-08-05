@@ -1,6 +1,6 @@
 from pathlib import Path
 
-root = Path(r"c:\Users\diogo\OneDrive\Documents\SITES\tupi-videos-portfolio")
+root = Path(__file__).resolve().parents[1]
 src = (root / "index.html").read_text(encoding="utf-8")
 for loc, lang in [("es", "es"), ("pt", "pt-BR")]:
     d = root / loc
