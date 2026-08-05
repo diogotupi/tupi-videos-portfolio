@@ -67,8 +67,8 @@ describe('initLightbox', () => {
     const iframe = document.querySelector('[data-lightbox-embed]');
     expect(iframe.hidden).toBe(false);
     expect(iframe.getAttribute('src')).toBe('https://player.vimeo.com/video/123');
-    expect(document.querySelector('[data-lightbox-credit]').textContent).toBe('Cliente: Cliente X');
-    expect(document.querySelector('[data-lightbox-roles]').textContent).toBe('O que eu fiz: Edição');
+    expect(document.querySelector('[data-lightbox-credit]').textContent).toBe('Client: Cliente X');
+    expect(document.querySelector('[data-lightbox-roles]').textContent).toBe('What I did: Edição');
     expect(document.querySelector('[data-lightbox-empty]').hidden).toBe(true);
   });
 

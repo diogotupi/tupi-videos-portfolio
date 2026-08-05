@@ -1,6 +1,7 @@
 import './styles/tokens.css';
 import './styles/base.css';
 import './styles/sections.css';
+import { initI18n } from './js/i18n.js';
 import { initHeroVideo } from './js/hero-video.js';
 import { initNav } from './js/nav.js';
 import { initReveal } from './js/reveal.js';
@@ -12,7 +13,9 @@ import { initSoftText } from './js/soft-text.js';
 import { initCardTilt } from './js/card-tilt.js';
 import { initLiveTimestamp } from './js/live-timestamp.js';
 import { initAmbientElectric } from './js/ambient-electric.js';
+import { initTracking } from './js/tracking.js';
 
+initI18n();
 initHeroVideo();
 initNav();
 initReveal();
@@ -24,3 +27,4 @@ initSoftText();
 initCardTilt();
 initLiveTimestamp();
 initAmbientElectric();
+initTracking();

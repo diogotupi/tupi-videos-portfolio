@@ -1,3 +1,5 @@
+import { getClientPrefix, getRolesPrefix } from './i18n.js';
+
 export function initLightbox(root = document) {
   const box = root.querySelector('[data-lightbox]');
   if (!box) return;
@@ -71,11 +73,11 @@ export function initLightbox(root = document) {
     if (titleEl) titleEl.textContent = title;
     if (tagEl) tagEl.textContent = tag;
     if (creditEl) {
-      creditEl.textContent = credit ? `Cliente: ${credit}` : '';
+      creditEl.textContent = credit ? `${getClientPrefix()}${credit}` : '';
       creditEl.hidden = !credit;
     }
     if (rolesEl) {
-      rolesEl.textContent = roles ? `O que eu fiz: ${roles}` : '';
+      rolesEl.textContent = roles ? `${getRolesPrefix()}${roles}` : '';
       rolesEl.hidden = !roles;
     }
 

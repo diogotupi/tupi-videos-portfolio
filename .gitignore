@@ -2,6 +2,9 @@
 dist
 .DS_Store
 *.local
+.env
+.env.*
+!.env.example
 .worktrees
 .superpowers
 .vercel
