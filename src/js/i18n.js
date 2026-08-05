@@ -87,9 +87,7 @@ function applyHead(locale) {
         telephone: '+55-21-93618-2629',
         priceRange: '$$',
         areaServed: [
-          { '@type': 'Place', name: 'Europe' },
-          { '@type': 'Country', name: 'Canada' },
-          { '@type': 'Country', name: 'Brazil' },
+          { '@type': 'Place', name: 'Worldwide' },
         ],
         serviceType: [
           'Video editing',

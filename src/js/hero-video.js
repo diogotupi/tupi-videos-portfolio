@@ -37,6 +37,21 @@ export function initHeroVideo(root = document) {
     }
   }
 
+  // Browsers only evaluate <source media> while loading, so the portrait cut
+  // has to be re-picked by hand when the breakpoint is crossed (rotation).
+  const mobile =
+    typeof window.matchMedia === 'function'
+      ? window.matchMedia('(max-width: 700px)')
+      : null;
+
+  const onBreakpointChange = () => {
+    if (!hasSource) return;
+    video.load();
+    tryPlay();
+  };
+
+  mobile?.addEventListener?.('change', onBreakpointChange);
+
   const animated = root.querySelectorAll('[data-hero-animate]');
   requestAnimationFrame(() => {
     animated.forEach((el, i) => {
@@ -44,4 +59,6 @@ export function initHeroVideo(root = document) {
       el.classList.add('is-in');
     });
   });
+
+  return () => mobile?.removeEventListener?.('change', onBreakpointChange);
 }

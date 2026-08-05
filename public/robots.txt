@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tupi-videos-portfolio.vercel.app/sitemap.xml
+Sitemap: https://tupi.video/sitemap.xml

@@ -1,4 +1,4 @@
-export const SITE_URL = 'https://tupi-videos-portfolio.vercel.app';
+export const SITE_URL = 'https://tupi.video';
 
 export const LOCALES = ['en', 'es', 'pt'];
 
@@ -6,11 +6,11 @@ export const messages = {
   en: {
     htmlLang: 'en',
     localeOg: 'en_US',
-    title: 'TUPI — Freelance Video Editor & Filmmaker (Europe / Remote)',
+    title: 'TUPI — Remote Video Editor & Filmmaker',
     description:
-      'Remote-friendly filmmaker, video editor and motion designer. 12+ years crafting reels, institutional films, docs and music videos. Based in Brazil, working with clients in Europe & Canada.',
+      'Remote digital nomad — filmmaker, video editor and motion designer. 12+ years crafting reels, institutional films, docs and music videos.',
     keywords:
-      'freelance video editor Europe, remote filmmaker, motion designer, reel editor, corporate video editor Canada, TUPI, Diogo Tupinambá',
+      'remote video editor, digital nomad editor, freelance filmmaker, motion designer, reel editor, TUPI, Diogo Tupinambá',
     skip: 'Skip to content',
     menu: 'Menu',
     navAbout: 'About',
@@ -19,7 +19,7 @@ export const messages = {
     navContact: 'Contact',
     heroLabel: 'Introduction',
     heroH1:
-      'TUPI — freelance video editor, filmmaker and motion designer for Europe & remote clients',
+      'TUPI — remote video editor, filmmaker and motion designer',
     heroRole: 'filmmaker · editor · motion designer',
     heroCta: 'View work',
     aboutLabel: 'About',
@@ -28,7 +28,7 @@ export const messages = {
     aboutP1Before: 'My name is Diogo Tupinambá — you can call me Tupi. I’m a ',
     aboutP1Strong: 'producer, filmmaker, video editor and motion designer',
     aboutP1After:
-      ' with about 12 years of experience. I help you communicate your idea professionally — for social, YouTube, campaigns or any other project. Remote-friendly, targeting clients in Europe and Canada.',
+      ' with about 12 years of experience. I help you communicate your idea professionally — for social, YouTube, campaigns or any other project. I work remotely as a digital nomad.',
     aboutP2:
       'Browse the portfolio below. If you like what you see, hit WhatsApp and let’s talk.',
     worksLabel: 'Portfolio',
@@ -40,7 +40,7 @@ export const messages = {
       'Production, filmmaking, video editing, reels and motion design — from social content to campaigns, YouTube and institutional projects.',
     faqQ2: 'Where do you work from?',
     faqA2:
-      'Currently based in Brazil, remote-friendly with clients abroad. Relocating internationally — Europe and Canada are priority markets.',
+      'I’m a remote digital nomad — I deliver projects online from wherever I am.',
     faqQ3: 'How do I get in touch?',
     faqA3:
       'WhatsApp on this site is the main channel for quotes and briefs.',
@@ -78,18 +78,18 @@ export const messages = {
     altCeo: 'Thumbnail for CEO Black Ops reality series',
     schemaJobTitle: 'Filmmaker, video editor and motion designer',
     schemaPersonDesc:
-      'Producer, filmmaker, video editor and motion designer with about 12 years of experience. Remote-friendly; working with clients in Europe and Canada.',
+      'Producer, filmmaker, video editor and motion designer with about 12 years of experience. Remote digital nomad.',
     schemaSiteDesc:
       'Portfolio of Diogo Tupinambá (TUPI) — freelance filmmaker, video editor and motion designer.',
   },
   es: {
     htmlLang: 'es',
     localeOg: 'es_ES',
-    title: 'TUPI — Editor de video y filmmaker freelance (Europa / remoto)',
+    title: 'TUPI — Editor de video y filmmaker remoto',
     description:
-      'Filmmaker, editor de video y motion designer con trabajo remoto. Más de 12 años en reels, institucionales, docs y videoclips. Base en Brasil; clientes en Europa y Canadá.',
+      'Nómada digital remoto — filmmaker, editor de video y motion designer. Más de 12 años en reels, institucionales, docs y videoclips.',
     keywords:
-      'editor de video freelance Europa, filmmaker remoto, motion designer, editor de reels, TUPI, Diogo Tupinambá',
+      'editor de video remoto, nómada digital, filmmaker freelance, motion designer, editor de reels, TUPI, Diogo Tupinambá',
     skip: 'Saltar al contenido',
     menu: 'Menú',
     navAbout: 'Sobre mí',
@@ -98,7 +98,7 @@ export const messages = {
     navContact: 'Contacto',
     heroLabel: 'Presentación',
     heroH1:
-      'TUPI — editor de video, filmmaker y motion designer freelance para Europa y clientes remotos',
+      'TUPI — editor de video, filmmaker y motion designer remoto',
     heroRole: 'filmmaker · editor · motion designer',
     heroCta: 'Ver trabajos',
     aboutLabel: 'Sobre mí',
@@ -107,7 +107,7 @@ export const messages = {
     aboutP1Before: 'Me llamo Diogo Tupinambá — puedes decirme Tupi. Soy ',
     aboutP1Strong: 'productor, filmmaker, editor de video y motion designer',
     aboutP1After:
-      ' con unos 12 años de experiencia. Te ayudo a comunicar tu idea con nivel profesional — redes, YouTube, campañas u otros proyectos. Trabajo remoto; priorizo clientes en Europa y Canadá.',
+      ' con unos 12 años de experiencia. Te ayudo a comunicar tu idea con nivel profesional — redes, YouTube, campañas u otros proyectos. Trabajo remoto como nómada digital.',
     aboutP2:
       'Mira el portafolio abajo. Si te gusta, escríbeme por WhatsApp y hablamos.',
     worksLabel: 'Portafolio',
@@ -119,7 +119,7 @@ export const messages = {
       'Producción, filmmaking, edición de video, reels y motion design — de redes a campañas, YouTube y proyectos institucionales.',
     faqQ2: '¿Desde dónde trabajas?',
     faqA2:
-      'Actualmente en Brasil, con proyectos remotos en el extranjero. Me mudo al exterior; Europa y Canadá son mercados prioritarios.',
+      'Soy nómada digital remoto — entrego proyectos online desde donde esté.',
     faqQ3: '¿Cómo contactarte?',
     faqA3:
       'WhatsApp en este sitio es el canal principal para presupuestos y briefs.',
@@ -155,18 +155,18 @@ export const messages = {
     altCeo: 'Miniatura del reality CEO Black Ops',
     schemaJobTitle: 'Filmmaker, editor de video y motion designer',
     schemaPersonDesc:
-      'Productor, filmmaker, editor de video y motion designer con unos 12 años de experiencia. Trabajo remoto; clientes en Europa y Canadá.',
+      'Productor, filmmaker, editor de video y motion designer con unos 12 años de experiencia. Nómada digital remoto.',
     schemaSiteDesc:
       'Portafolio de Diogo Tupinambá (TUPI) — filmmaker, editor de video y motion designer freelance.',
   },
   pt: {
     htmlLang: 'pt-BR',
     localeOg: 'pt_BR',
-    title: 'TUPI — Editor de vídeo e filmmaker freelance (Europa / remoto)',
+    title: 'TUPI — Editor de vídeo e filmmaker remoto',
     description:
-      'Filmmaker, editor de vídeo e motion designer com trabalho remoto. 12+ anos em reels, institucionais, docs e videoclipes. Base no Brasil; clientes na Europa e Canadá.',
+      'Nômade digital remoto — filmmaker, editor de vídeo e motion designer. 12+ anos em reels, institucionais, docs e videoclipes.',
     keywords:
-      'editor de vídeo freelance Europa, filmmaker remoto, motion designer, editor de reels, TUPI, Diogo Tupinambá',
+      'editor de vídeo remoto, nômade digital, filmmaker freelance, motion designer, editor de reels, TUPI, Diogo Tupinambá',
     skip: 'Pular para o conteúdo',
     menu: 'Menu',
     navAbout: 'Sobre',
@@ -175,7 +175,7 @@ export const messages = {
     navContact: 'Contato',
     heroLabel: 'Apresentação',
     heroH1:
-      'TUPI — editor de vídeo, filmmaker e motion designer freelance para Europa e clientes remotos',
+      'TUPI — editor de vídeo, filmmaker e motion designer remoto',
     heroRole: 'filmmaker · editor · motion designer',
     heroCta: 'Ver trabalhos',
     aboutLabel: 'Sobre',
@@ -184,7 +184,7 @@ export const messages = {
     aboutP1Before: 'Meu nome é Diogo Tupinambá — pode me chamar de Tupi. Sou ',
     aboutP1Strong: 'produtor, filmmaker, editor de vídeo e motion designer',
     aboutP1After:
-      ', com cerca de 12 anos de experiência. Meu objetivo é ajudar você a comunicar sua ideia de forma profissional — redes, YouTube, campanhas ou qualquer outro projeto. Atendo remoto; priorizo clientes na Europa e no Canadá.',
+      ', com cerca de 12 anos de experiência. Meu objetivo é ajudar você a comunicar sua ideia de forma profissional — redes, YouTube, campanhas ou qualquer outro projeto. Trabalho remoto como nômade digital.',
     aboutP2:
       'Dá uma olhada no portfólio aqui embaixo. Se curtir o que viu, é só clicar no WhatsApp que a gente conversa.',
     worksLabel: 'Portfolio',
@@ -196,7 +196,7 @@ export const messages = {
       'Produção, filmmaking, edição de vídeo, reels e motion design — de redes sociais a campanhas, YouTube e projetos institucionais.',
     faqQ2: 'De onde você atende?',
     faqA2:
-      'Hoje baseado no Brasil, com projetos remotos no exterior. Em processo de mudança internacional — Europa e Canadá são mercados prioritários.',
+      'Sou nômade digital remoto — entrego projetos online de onde eu estiver.',
     faqQ3: 'Como entrar em contato?',
     faqA3:
       'O WhatsApp neste site é o canal principal para orçamentos e briefings.',
@@ -232,7 +232,7 @@ export const messages = {
     altCeo: 'Thumbnail do reality CEO Black Ops',
     schemaJobTitle: 'Filmmaker, editor de vídeo e motion designer',
     schemaPersonDesc:
-      'Produtor, filmmaker, editor de vídeo e motion designer com cerca de 12 anos de experiência. Atendimento remoto; clientes na Europa e no Canadá.',
+      'Produtor, filmmaker, editor de vídeo e motion designer com cerca de 12 anos de experiência. Nômade digital remoto.',
     schemaSiteDesc:
       'Portfólio de Diogo Tupinambá (TUPI) — filmmaker, editor de vídeo e motion designer freelance.',
   },
