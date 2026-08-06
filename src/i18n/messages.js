@@ -1,4 +1,6 @@
-export const SITE_URL = 'https://tupi.video';
+export const SITE_URL = (
+  import.meta.env.VITE_SITE_URL || 'https://tupi.video'
+).replace(/\/$/, '');
 
 export const LOCALES = ['en', 'es', 'pt'];
 

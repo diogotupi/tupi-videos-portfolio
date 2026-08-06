@@ -1,6 +1,7 @@
 /**
- * Tracking hooks — Semana 1 SEO/tráfego.
- * Preencha VITE_GTM_ID e/ou VITE_META_PIXEL_ID no .env.local
+ * Tracking hooks — GA4 / GTM / Meta Pixel.
+ * Configure via VITE_GA4_ID, VITE_GTM_ID, VITE_META_PIXEL_ID
+ * (see .env.example; production values live in Vercel env).
  */
 export function initTracking() {
   const gtmId = import.meta.env.VITE_GTM_ID?.trim();
