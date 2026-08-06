@@ -1,7 +1,9 @@
 /**
- * Tracking hooks — GA4 / GTM / Meta Pixel.
- * Configure via VITE_GA4_ID, VITE_GTM_ID, VITE_META_PIXEL_ID
- * (see .env.example; production values live in Vercel env).
+ * Tracking hooks — GTM (preferred) / GA4 fallback / Meta Pixel.
+ *
+ * With VITE_GTM_ID set, only GTM loads (head script + body noscript).
+ * Configure GA4 / Pixel as tags inside the GTM container to avoid
+ * double pageviews. VITE_GA4_ID is used only when GTM is empty.
  */
 export function initTracking() {
   const gtmId = import.meta.env.VITE_GTM_ID?.trim();
