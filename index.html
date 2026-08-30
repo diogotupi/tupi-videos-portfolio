@@ -157,21 +157,25 @@
 
       <section class="showreel section" aria-label="Showreel" data-i18n-attr="aria-label:showreelLabel">
         <div class="showreel__inner">
-          <p class="section__label js-reveal" data-i18n="showreelLabel">Showreel</p>
+          <h2 class="showreel__title js-reveal" data-i18n="showreelTitle">Showreel</h2>
           <div class="showreel__frame js-reveal">
             <video
               class="showreel__video"
-              muted
-              loop
               playsinline
               controls
-              preload="none"
+              preload="metadata"
               data-showreel-video
               data-i18n-attr="aria-label:showreelAria"
               aria-label="Featured showreel video"
-              poster="https://res.cloudinary.com/db5hfdjix/video/upload/so_0,f_jpg,q_auto/v1788102645/Horizontal_exqhhi.jpg"
-              data-src="https://res.cloudinary.com/db5hfdjix/video/upload/f_auto,q_auto/v1788102645/Horizontal_exqhhi.mp4"
+              data-src="https://res.cloudinary.com/db5hfdjix/video/upload/v1788102645/Horizontal_exqhhi.mp4"
             ></video>
+            <button class="showreel__play" type="button" data-i18n-attr="aria-label:showreelPlay" aria-label="Play showreel">
+              <svg class="showreel__play-icon" viewBox="0 0 100 100" aria-hidden="true">
+                <circle cx="50" cy="50" r="48" />
+                <polygon points="40,32 40,68 70,50" />
+              </svg>
+              <span class="sr-only" data-i18n="showreelPlay">Play showreel</span>
+            </button>
           </div>
         </div>
       </section>
