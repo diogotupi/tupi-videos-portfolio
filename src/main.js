@@ -15,6 +15,7 @@ import { initCardTilt } from './js/card-tilt.js';
 import { initLiveTimestamp } from './js/live-timestamp.js';
 import { initAmbientElectric } from './js/ambient-electric.js';
 import { initTracking } from './js/tracking.js';
+import { initShowreel } from './js/showreel.js';
 
 initI18n();
 initHeroVideo();
@@ -30,3 +31,4 @@ initCardTilt();
 initLiveTimestamp();
 initAmbientElectric();
 initTracking();
+initShowreel();
