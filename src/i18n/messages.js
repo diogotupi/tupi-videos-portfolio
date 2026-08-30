@@ -26,7 +26,9 @@ export const messages = {
     heroCta: 'View work',
     // showreel
     showreelLabel: 'Showreel',
+    showreelTitle: 'Showreel',
     showreelAria: 'Featured showreel video',
+    showreelPlay: 'Play showreel',
     aboutLabel: 'About',
     aboutTitle: 'Who I am',
     aboutHi: 'Hey, how’s it going?',
@@ -108,7 +110,9 @@ export const messages = {
     heroCta: 'Ver trabajos',
     // showreel
     showreelLabel: 'Showreel',
+    showreelTitle: 'Showreel',
     showreelAria: 'Video showreel destacado',
+    showreelPlay: 'Reproducir showreel',
     aboutLabel: 'Sobre mí',
     aboutTitle: 'Quién soy',
     aboutHi: '¡Hola! ¿Todo bien?',
@@ -188,7 +192,9 @@ export const messages = {
     heroCta: 'Ver trabalhos',
     // showreel
     showreelLabel: 'Showreel',
+    showreelTitle: 'Showreel',
     showreelAria: 'Vídeo showreel em destaque',
+    showreelPlay: 'Reproduzir showreel',
     aboutLabel: 'Sobre',
     aboutTitle: 'Quem sou',
     aboutHi: 'E aí, tudo bem?',
