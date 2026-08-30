@@ -23,12 +23,13 @@ export const messages = {
     heroH1:
       'TUPI — remote video editor, filmmaker and motion designer',
     heroRole: 'filmmaker · editor · motion designer',
-    heroCta: 'View work',
+    heroCta: 'Showreel',
     // showreel
     showreelLabel: 'Showreel',
     showreelTitle: 'Showreel',
     showreelAria: 'Featured showreel video',
     showreelPlay: 'Play showreel',
+    showreelMore: 'see more work',
     aboutLabel: 'About',
     aboutTitle: 'Who I am',
     aboutHi: 'Hey, how’s it going?',
@@ -107,12 +108,13 @@ export const messages = {
     heroH1:
       'TUPI — editor de video, filmmaker y motion designer remoto',
     heroRole: 'filmmaker · editor · motion designer',
-    heroCta: 'Ver trabajos',
+    heroCta: 'Showreel',
     // showreel
     showreelLabel: 'Showreel',
     showreelTitle: 'Showreel',
     showreelAria: 'Video showreel destacado',
     showreelPlay: 'Reproducir showreel',
+    showreelMore: 'ver más trabajos',
     aboutLabel: 'Sobre mí',
     aboutTitle: 'Quién soy',
     aboutHi: '¡Hola! ¿Todo bien?',
@@ -189,12 +191,13 @@ export const messages = {
     heroH1:
       'TUPI — editor de vídeo, filmmaker e motion designer remoto',
     heroRole: 'filmmaker · editor · motion designer',
-    heroCta: 'Ver trabalhos',
+    heroCta: 'Showreel',
     // showreel
     showreelLabel: 'Showreel',
     showreelTitle: 'Showreel',
     showreelAria: 'Vídeo showreel em destaque',
     showreelPlay: 'Reproduzir showreel',
+    showreelMore: 'ver mais trabalhos',
     aboutLabel: 'Sobre',
     aboutTitle: 'Quem sou',
     aboutHi: 'E aí, tudo bem?',

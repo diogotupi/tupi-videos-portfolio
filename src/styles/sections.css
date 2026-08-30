@@ -452,6 +452,28 @@
   pointer-events: none;
 }
 
+.showreel__more {
+  margin: var(--space-sm) 0 0;
+  text-align: center;
+}
+
+.showreel__more a {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 1px solid rgba(229, 91, 31, 0.35);
+  padding-bottom: 2px;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.showreel__more a:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
 .section {
   padding: var(--space-xl) var(--space-md);
   max-width: 1100px;
