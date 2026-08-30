@@ -402,6 +402,13 @@
   margin: 0 auto;
 }
 
+/* Ensure showreel is full-bleed even though it uses .section for spacing */
+.showreel.section {
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .section__label {
   margin: 0 0 var(--space-xs);
   font-family: var(--font-mono);
