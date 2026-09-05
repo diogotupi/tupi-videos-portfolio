@@ -73,3 +73,55 @@ export function initTracking() {
     });
   });
 }
+
+/**
+ * Fire Meta Pixel ViewContent and push a GTM dataLayer event
+ * when a portfolio video is opened.
+ *
+ * @param {{ name: string, category?: string, id?: string }} param0
+ */
+export function trackViewContent({ name, category, id }) {
+  const videoTitle = String(name || '').trim();
+  const videoCategory = String(category || '').trim();
+  const contentId = id && String(id).trim() ? String(id).trim() : undefined;
+
+  // Meta Pixel (if available)
+  try {
+    if (typeof window.fbq === 'function') {
+      window.fbq('track', 'ViewContent', {
+        content_name: videoTitle,
+        content_category: videoCategory || undefined,
+        content_type: 'video',
+        content_ids: contentId ? [contentId] : undefined,
+      });
+    }
+  } catch {
+    // Ignore tracking exceptions
+  }
+
+  // GTM dataLayer
+  try {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'video_view',
+      video_title: videoTitle,
+      video_tag: videoCategory || '',
+    });
+  } catch {
+    // Ignore dataLayer exceptions
+  }
+
+  // Optional GA4 direct event (nice-to-have)
+  try {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'view_item', {
+        item_id: contentId,
+        item_name: videoTitle,
+        item_category: videoCategory || undefined,
+        content_type: 'video',
+      });
+    }
+  } catch {
+    // Ignore GA exceptions
+  }
+}
