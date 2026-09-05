@@ -1,4 +1,5 @@
 import { getClientPrefix, getRolesPrefix } from './i18n.js';
+import { trackViewContent } from './tracking.js';
 
 export function initLightbox(root = document) {
   const box = root.querySelector('[data-lightbox]');
@@ -69,6 +70,32 @@ export function initLightbox(root = document) {
     const roles = btn.getAttribute('data-roles') || '';
     const src = btn.getAttribute('data-src') || '';
     const embedSrc = btn.getAttribute('data-embed') || '';
+    const explicitId =
+      btn.getAttribute('data-id') || btn.getAttribute('data-slug') || '';
+
+    const toSlug = (text) => {
+      const raw = String(text || '');
+      return raw
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+    };
+
+    const baseName = (maybeUrl) => {
+      const raw = String(maybeUrl || '');
+      if (!raw) return '';
+      try {
+        const u = new URL(raw);
+        const last = u.pathname.split('/').filter(Boolean).pop() || '';
+        return last.split('?')[0];
+      } catch {
+        const last = raw.split('/').pop() || '';
+        return last.split('?')[0];
+      }
+    };
 
     if (titleEl) titleEl.textContent = title;
     if (tagEl) tagEl.textContent = tag;
@@ -94,6 +121,14 @@ export function initLightbox(root = document) {
       }
       embed.hidden = false;
       embed.src = embedSrc;
+      // Track when an embedded video is opened
+      const derivedId =
+        explicitId || toSlug(title) || baseName(embedSrc).replace(/\.[a-z0-9]+$/i, '');
+      trackViewContent({
+        name: title,
+        category: tag,
+        id: derivedId || undefined,
+      });
     } else if (src && video) {
       if (empty) empty.hidden = true;
       if (player) {
@@ -103,6 +138,14 @@ export function initLightbox(root = document) {
       video.hidden = false;
       video.src = src;
       video.play()?.catch(() => {});
+      // Track when a file video is opened
+      const derivedId =
+        explicitId || toSlug(title) || baseName(src).replace(/\.[a-z0-9]+$/i, '');
+      trackViewContent({
+        name: title,
+        category: tag,
+        id: derivedId || undefined,
+      });
     } else {
       if (empty) empty.hidden = false;
     }
